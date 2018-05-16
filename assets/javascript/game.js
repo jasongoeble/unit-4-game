@@ -34,6 +34,8 @@ console.log("crystal4 value: "+crystal4Value);
 //the following are the on click handlers for each crystal
 $("#crystal1").click(function()
 {
+    //credit for clueing me into the animation feature goes to James Illius
+    $("#img1").animate({top: "-=25px"}, "fast").animate({top: "+=25px"}, "fast");
     currentGuess = currentGuess + crystal1Value;
     $("#yourGuess").html(currentGuess);
     gameChecker=isGameOver(currentGuess);
@@ -62,6 +64,7 @@ $("#crystal1").click(function()
 
 $("#crystal2").click(function()
 {
+    $("#img2").animate({top: "-=25px"}, "fast").animate({top: "+=25px"}, "fast");
     currentGuess = currentGuess + crystal2Value;
     $("#yourGuess").html(currentGuess);
     gameChecker=isGameOver(currentGuess);
@@ -90,6 +93,7 @@ $("#crystal2").click(function()
 
 $("#crystal3").click(function()
 {
+    $("#img3").animate({top: "-=25px"}, "fast").animate({top: "+=25px"}, "fast");
     currentGuess = currentGuess + crystal3Value;
     $("#yourGuess").html(currentGuess);
     gameChecker=isGameOver(currentGuess);
@@ -118,6 +122,7 @@ $("#crystal3").click(function()
 
 $("#crystal4").click(function()
 {
+    $("#img4").animate({top: "-=25px"}, "fast").animate({top: "+=25px"}, "fast");
     currentGuess = currentGuess + crystal4Value;
     $("#yourGuess").html(currentGuess);
     gameChecker=isGameOver(currentGuess);
