@@ -13,6 +13,7 @@
     <!-- jquery functionality link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
     <title>
         Crystal Collector
     </title>
@@ -21,83 +22,115 @@
 
 <body>
 
-    <!-- container for header and instructions-->
+    <nav class="nav justify-content-end text-white ">
+        <a class="nav-link" href="#">Game Play Page</a>
+        <a class="nav-link" href="./instructions.html">Instructions</a>
+    </nav>
+
     <div class="container-fluid">
         <div class="row">
-            <div class="col text-center">
+            <div class="col-12 text-center text-white">
                 <h1>Crystal Collector</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-4 text-wrap">
-                <p>You will be given a random number at the start of the game.</p>
-                <P>There are four crystals elow.  By clickng on a crystal you will add a specific amount of points to your</P>
-                <p>You win the game by matching your total score to the random number, you lose the game if your total score goes above the random number.</p>
-                <p>The value of each crystal is hidden from you until you click on it.</p>
-                <P>Each time you start a game, the value of each crystal (and the number goal) will change.</P>
-            </div>
-            <div class="col-4">
-                
-            </div>
-            <div class="col-4">
-                
-            </div>
-        </div>
     </div>
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
     <!-- container for target number and win/loss count -->
-    <div class ="container-fluid">
+    <div class ="container-fluid text-white">
         <div class = "row">
+            <div class="col-1">
+                <!-- empty spacer -->
+            </div>
             <!-- div to hold random number goal -->
-            <div class="col-3 text-justify" id=goalNumber>
+            <div class="col-5 text-left" id="goalNumber">
                 <h2> Number to Guess:</h2>
                 <br>
-                <h2 id=objective></h2>
+                <h2 id="objective"></h2>
 
             </div>
             <!-- div to hold count of wins and losses -->
-            <div class="col-3 text-justify" id=gameResultCount>
-                <h2>Wins:</h2>
-                <h2 id=winCount></h2>
+            <div class="col-5 text-right" id="gameResultCount">
+                <h2 id="winCount"></h2>
                 <br>
-                <h2>Losses:</h2>
-                <h2 id=lossCount></h2>
+                <h2 id="lossCount"></h2>
             </div>
-        </div>
-
+            <div class="col-1">
+                <!-- empty spacer -->
+            </div>
+        </div>  
     </div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- container for crystals -->
-    <div class ="container-fluid">
+    <div class ="container-fluid text-white">
+        <div class="row">
+            <div class="col-1">
+                <!-- empty spacer -->
+            </div>
+            <div class="col-10 align-center">
+                <h2>Crystal Choices:</h2>
+            </div>
+            <div class="col-1">
+                <!-- empty spacer -->
+            </div>
+        </div>
         <div class = "row">
-            <div class="col-1">
-                <img src="./assets/images/appl_crystal.png" id=crystal1 class="rounded mx-auto d-block" alt="Apple Crystal">
+            <div class="col-2">
+                <!-- empty spacer -->
             </div>
-            <div class="col-1">
-                <img src="./assets/images/gold_crystal.png" id=crystal2 class="rounded mx-auto d-block" alt="Gold Bar Crystal">
+            <div class="col-2">
+                <img src="./assets/images/appl_crystal.png" id="crystal1" class="rounded mx-auto d-block" alt="Apple Crystal">
             </div>
-            <div class="col-1">
-                <img src="./assets/images/rose_crystal.png" id=crystal3 class="rounded mx-auto d-block" alt="Rose Colored Crystal">
+            <div class="col-2">
+                <img src="./assets/images/gold_crystal.png" id="crystal2" class="rounded mx-auto d-block" alt="Gold Bar Crystal">
             </div>
-            <div class="col-1">
-                <img src="./assets/images/sky_blue_crystal.png" id=crystal4 class="rounded mx-auto d-block" alt="Sky Blue Crystal">
+            <div class="col2">
+                <img src="./assets/images/rose_crystal.png" id="crystal3" class="rounded mx-auto d-block" alt="Rose Colored Crystal">
+            </div>
+            <div class="col-2">
+                <img src="./assets/images/sky_blue_crystal.png" id="crystal4" class="rounded mx-auto d-block" alt="Sky Blue Crystal">
+            </div>
+                <div class="col-2">
+                <!-- empty spacer -->
             </div>
         </div>
     </div>
+
+    <br>
 
     <!-- score accrual-->
-    <div class ="container-fluid">
+    <div class ="container-fluid text-white">
         <div class = "row">
-            <div class="col-3 text-justify">
-                <h2>Current guess:</h2>
+            <div class="col-1">
+                <!-- empty spacer -->
             </div>
-        </div>
-        <div class="row">
-            <div class="col-3 text-justfiy" id="yourGuess">
-
+            <div class="col-10 text-center">
+                <h2>Current guess:</h2>
+                <br>
+                <h2 id="yourGuess"></h2>
+            </div>
+            <div class="col-1">
+                <!-- empty spacer -->
             </div>
         </div>
     </div>
+
+<script src="./assets/javascript/game.js"></script>
 
 </body>
 

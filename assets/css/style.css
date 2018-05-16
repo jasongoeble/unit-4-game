@@ -1,1 +1,40 @@
+body 
+{
+    background-color: white;
+    background-image: url("../images/space-3403033_1280.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    line-height: 1.3;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 
+header, h1, h2
+{
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+a:link
+{
+    color: whitesmoke;
+}
+
+a:visited
+{
+    color: yellowgreen;
+}
+
+a:active
+{
+    color: greenyellow;
+}
+#instructionsText
+{
+    
+    color: white;
+}
+
+#instructionsHeaderText
+{
+    
+    color: greenyellow;
+}

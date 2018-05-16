@@ -1,3 +1,151 @@
+$(document).ready(function() {
+
+//initialize gameEnding value to 1, which means the game is not over
+//when gameEnding = 2 the game is over because the guess is > goal
+//when gameEnding = 3 the game is over because the guess = goal
+var gameEnding = 1;
+
+//variables to track wins and losses
+var wins=0;
+var loss=0;
+
+//display state of wins and losses to the main page
+$("#lossCount").html("Losses:   "+loss);
+$("#winCount").html("Wins:  "+wins);
+
+//define currentGuess as global variables
+//will be used every time a .click event on a crystal occurs
+//initializing the global variables as 0
+var currentGuess = 0;
+
+//set value for number to be guessed
+var goal = 0;
+
+//set value for each of the crystals
+var crystal1Value = 0;
+console.log("crystal1 value: "+crystal1Value);
+var crystal2Value = 0;
+console.log("crystal2 value: "+crystal2Value);
+var crystal3Value = 0;
+console.log("crystal3 value: "+crystal3Value);
+var crystal4Value = 0;
+console.log("crystal4 value: "+crystal4Value);
+
+//the following are the on click handlers for each crystal
+$("#crystal1").click(function()
+{
+    currentGuess = currentGuess + crystal1Value;
+    $("#yourGuess").html(currentGuess);
+    gameChecker=isGameOver(currentGuess);
+
+    if (gameChecker === 2)
+        {
+            loss = loss + 1;
+            $("#lossCount").html("Losses:   "+loss);
+            alert("You lost!");
+            gameEnding = 2;
+            gamePlay();
+        }
+    if (gameChecker === 3)
+        {
+            wins = wins + 1;
+            $("#winCount").html("Wins:  "+wins);
+            alert("You have won!");
+            gameEnding = 3;
+            gamePlay();
+        }
+    else
+    {
+
+    }
+})
+
+$("#crystal2").click(function()
+{
+    currentGuess = currentGuess + crystal2Value;
+    $("#yourGuess").html(currentGuess);
+    gameChecker=isGameOver(currentGuess);
+
+    if (gameChecker === 2)
+        {
+            loss = loss + 1;
+            $("#lossCount").html("Losses:   "+loss);
+            alert("You lost!");
+            gameEnding = 2;
+            gamePlay();
+        }
+    if (gameChecker === 3)
+        {
+            wins = wins + 1;
+            $("#winCount").html("Wins:  "+wins);
+            alert("You have won!");
+            gameEnding = 3;
+            gamePlay();
+        }
+    else
+    {
+
+    }
+})
+
+$("#crystal3").click(function()
+{
+    currentGuess = currentGuess + crystal3Value;
+    $("#yourGuess").html(currentGuess);
+    gameChecker=isGameOver(currentGuess);
+
+    if (gameChecker === 2)
+        {
+            loss = loss + 1;
+            $("#lossCount").html("Losses:   "+loss);
+            alert("You lost!");
+            gameEnding = 2;
+            gamePlay();
+        }
+    if (gameChecker === 3)
+        {
+            wins = wins + 1;
+            $("#winCount").html("Wins:  "+wins);
+            alert("You have won!");
+            gameEnding = 3;
+            gamePlay();
+        }
+    else
+    {
+
+    }
+})
+
+$("#crystal4").click(function()
+{
+    currentGuess = currentGuess + crystal4Value;
+    $("#yourGuess").html(currentGuess);
+    gameChecker=isGameOver(currentGuess);
+
+    if (gameChecker === 2)
+        {
+            loss = loss + 1;
+            $("#lossCount").html("Losses:   "+loss);
+            alert("You lost!");
+            gameEnding = 2;
+            gamePlay();
+        }
+    if (gameChecker === 3)
+        {
+            wins = wins + 1;
+            $("#winCount").html("Wins:  "+wins);
+            alert("You have won!");
+            gameEnding = 3;
+            gamePlay();
+        }
+    else
+    {
+
+    }
+})
+//here is where the on click handlers end
+
+
 //randomizer function that returns an integer between the min and max value passed to it
 function getRndInteger(min, max) {
     return Math.floor((Math.random() * (max - min) ) + min);
@@ -13,31 +161,17 @@ function crystalValue()
     return getRndInteger(1,12);
 }
 
-//initialize gameEnding value to 1, which means the game is not over
-//when gameEnding = 2 the game is over because the guess is > goal
-//when gameEnding = 3 the game is over because the guess = goal
-var gameEnding = 1;
-
-//variables to track wins and losses
-var wins;
-var loss;
-
-//define currentGuess and addGuess as global variables
-//will be used every time a .click event on a crystal occurs
-//initializing the global variables as 0
-var currentGuess = 0;
-
-function isGameOver()
+function isGameOver(guessingValue)
 {
-    if (currentGuess < goal)
+    if (guessingValue < goal)
         {
             return 1;
         }
-    else if (currentGuess > goal)
+    if (guessingValue > goal)
         {
             return 2;
         }
-    else if (currentGuess == goal)
+    if (guessingValue === goal)
         {
             return 3;
         }
@@ -45,115 +179,37 @@ function isGameOver()
         {}
 }
 
-do 
+function gamePlay()
 {
+    //set gameChecker vairable to 0 at the start of every game
+    var gameChecker = 0;
 
-    //set value for number to be guessed
-    var goal = numberToGuess();
+    //set value for each of the crystals at the start of every game
+    crystal1Value = crystalValue();
+    console.log("crystal1 value: "+crystal1Value);
+    crystal2Value = crystalValue();
+    console.log("crystal2 value: "+crystal2Value);
+    crystal3Value = crystalValue();
+    console.log("crystal3 value: "+crystal3Value);
+    crystal4Value = crystalValue();
+    console.log("crystal4 value: "+crystal4Value);
+    
+    //set the value of the number to be guessed at the start of every game
+    goal = numberToGuess();
+    
+    //default the currentGuess variable to 0 at the start of every game
+    currentGuess=0;
+    console.log("currentGuess value: "+currentGuess);
+    
+    //display the currentGuess value of 0 to the window every time a new game starts
+    $("#yourGuess").html(currentGuess);
 
-    //set value for each of the crystals
-    var crystal1Value = crystalValue();
-    var crystal2Value = crystalValue();
-    var crystal3Value = crystalValue();
-    var crystal4Value = crystalValue();
-
-    //insert the number goal to the page
+    //insert the number goal to the page every time a new game starts
     $("#objective").html(goal);
 
-    $("#crystal1").click(function()
-    {
-        currentGuess = currentGuess + crystal1Value;
-        $("#yourGuess").html(currentGuess);
-        isGameOver();
-        if (isGameOver == 2)
-            {
-                loss = loss + 1;
-                $("#lossCount").html(loss);
-                gameEnding = 2;
-            }
-        else if (isGameOver == 3)
-            {
-                win = win + 1;
-                $("#winCount").html(win);
-                gameEnding = 3;
-            }
-        else
-        {
-
-        }
-    })
-
-    $("#crystal2").click(function()
-    {
-        currentGuess = currentGuess + crystal2Value;
-        $("#yourGuess").html(currentGuess);
-    })
-
-    $("#crystal3").click(function()
-    {
-        currentGuess = currentGuess + crystal3Value;
-        $("#yourGuess").html(currentGuess);
-    })
-
-    $("#crystal4").click(function()
-    {
-        currentGuess = currentGuess + crystal4Value;
-        $("#yourGuess").html(currentGuess);
-    })
-
-} while (gameEnding = 1);
-
-//i'd like to reset the game play once the game is over, and i feel like this is the logic that would do it
-//but it isn't linked into the do while loop above...so i'm not sure if resetting the gameEnding value here 
-//will have the desired effect of restarting the game
-if (gameEnding == 2)
-{
-    alert("You have lost.");
-    gameEnding = 1;
 }
 
-else if (gameEnding == 3)
-{
-    alert("You have won!");
-    gameEnding = 1;
-}
+//this starts the game upon page load
+gamePlay();
 
-else{}
-
-
-//--------------------------------------------------------
-//pseudo code for game design
-
-//on page load and document.ready = true :
- 
-//do {
-    //restart function 
-    //{
-        //load number to be guessed
-            //run randomn integer and push value to div for display
-        //load number assignments to all 4 crystals
-        //set current guess to 0 
-    //}
-
-    //listen for .click events for crystal images
-        //on .click event
-            //add crystal value to current guess
-            //evaluate logic: 
-                //if current guess < to be guessed
-                    //if true 
-                        //continue to listen for .click even
-                    //if else current guess > to be guessed
-                        //game is over
-                        //add 1 to loss record
-                        //alert user they have lost
-                        //play game = 2
-                            //upon alert close
-                            //call restart function - play game = 1
-                    //if else current guess = to be guessed
-                        //game is over
-                        //add 1 to win record
-                        //alert user they have won
-                        //play game = 2
-                            //upon alert close
-                            //call restart function - play game = 2
-//} while (play game = 1)
+});
